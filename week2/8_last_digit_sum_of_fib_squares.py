@@ -3,14 +3,14 @@
 
 
 def get_fibonacci_pisano_rene(n):
-    pisano_period = get_pisano_period(10)
+    pisano_period = get_pisano_period(3)
     remainder_n = n % pisano_period
 
     previous, current = 0, 1
     for _ in range(remainder_n - 1):
         previous, current = current, previous + current
 
-    return current + previous
+    return current
 
 
 def get_pisano_period(m):
@@ -19,7 +19,7 @@ def get_pisano_period(m):
         previous, current = current, (previous + current) % m
 
         # Pisano Period always starts with 01
-        if (previous == 0 and current == 1):
+        if previous == 0 and current == 1:
             return i + 1
 
 
