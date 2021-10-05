@@ -29,10 +29,12 @@ def format_output(f_n, f_n_plus_1):
 
 if __name__ == '__main__':
     n = int(input())
-    if n != 0:
+    if n > 1:
         f_n = get_fibonacci_pisano_rene(n)
         f_n_plus_1 = get_fibonacci_pisano_rene(n+1)
         print(format_output(f_n, f_n_plus_1))
+    elif n == 1:
+        print(1)
     else:
         print(0)
     # print(f'fib_n: {f_n} fib_n+1: {f_n_plus_1}')
