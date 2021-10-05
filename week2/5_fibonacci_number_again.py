@@ -12,7 +12,7 @@ def get_fibonacci_modulo_rene(n, m):
     previous, current = 0, 1
     for _ in range(remainder_n - 1):
         previous, current = current, previous + current
-    print(current)
+
     return current % m
 
 

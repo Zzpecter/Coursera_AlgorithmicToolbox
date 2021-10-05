@@ -10,7 +10,7 @@ def get_fibonacci_pisano_rene(n):
     for _ in range(remainder_n - 1):
         previous, current = current, previous + current
 
-    return current
+    return current + previous
 
 
 def get_pisano_period(m):

@@ -11,7 +11,7 @@ def calc_fib(n):
     for _ in range(n-2):
         fib_map.append((fib_map[index-1] + fib_map[index]))
         index += 1
-    return fib_map[index]
+    return fib_map[index] + fib_map[index-1]
 
 n = int(input())
 print(calc_fib(n))

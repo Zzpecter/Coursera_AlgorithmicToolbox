@@ -1,32 +1,44 @@
 # Created by: René Vilar S.
 # Algorithmic Toolbox - Coursera 2021
 
-def fibonacci(n):
-    pair = True if n % 2 == 0 else False
+import time
 
-    if n == 0:
+global start
+MAX_TIME = 9.9
+
+def get_fibonacci_rene(n):
+    pisano_period = get_pisano_period(10)
+    remainder_n = n % pisano_period
+
+    if remainder_n == 0:
         return 0
-    elif n == 1 or n == 2:
-        return 1
 
-    k = int(n/2 if pair else (n+1)/2)
+    previous, current = 0, 1
+    for _ in range(remainder_n - 1):
 
-    fib_k = fibonacci(k)
-    fib_k_minus_1 = fibonacci(k - 1)
+        if time.time() - start > MAX_TIME:
+            raise TimeoutError
+        previous, current = current, previous + current
 
-    fib_n = (2*fib_k_minus_1 + fib_k)*fib_k if pair else fib_k**2 + fib_k_minus_1**2
-
-    return fib_n
+    return current % 10
 
 
-def get_sum(n):
-    return (fibonacci(n + 2) - 1)
+def get_pisano_period(m):
+    previous, current = 0, 1
+    for i in range(m ** 2):
+        previous, current = current, (previous + current) % m
+
+        # Pisano Period always starts with 01
+        if (previous == 0 and current == 1):
+            return i + 1
 
 
 def get_last_digit_of_sum(n):
-    return int(str(get_sum(n))[-1:])
+    return (get_fibonacci_rene(n + 2) - 1)%10
 
 
 if __name__ == '__main__':
     n = int(input())
+    start = time.time()
     print(get_last_digit_of_sum(n))
+    end = time.time()

@@ -1,8 +1,6 @@
 # Created by: René Vilar S.
 # Algorithmic Toolbox - Coursera 2021
 
-global fib_map
-
 
 def sum_iterative_fibonacci(last, actual, from_, until):
     actual_sum = 0
@@ -32,8 +30,10 @@ def fibonacci(n):
 
 
 def get_partial_fib_sum(n, m):
-    if n == 0:
+    if n == 0 and m == 0:
         return 0
+    if n == 0 and m == 1:
+        return 1
     actual = fibonacci(n)
     last = fibonacci(n-1)
     return sum_iterative_fibonacci(last, actual, n, m)
@@ -46,5 +46,4 @@ def get_last_digit(d):
 if __name__ == '__main__':
     input = input()
     from_, to = map(int, input.split())
-    fib_map = [0] * (to + 3)
     print(get_last_digit(get_partial_fib_sum(from_, to)))
