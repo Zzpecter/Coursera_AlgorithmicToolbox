@@ -29,9 +29,12 @@ def format_output(f_n, f_n_plus_1):
 
 if __name__ == '__main__':
     n = int(input())
-    f_n = get_fibonacci_pisano_rene(n)
-    f_n_plus_1 = get_fibonacci_pisano_rene(n+1)
-    print(format_output(f_n, f_n_plus_1))
+    if n != 0:
+        f_n = get_fibonacci_pisano_rene(n)
+        f_n_plus_1 = get_fibonacci_pisano_rene(n+1)
+        print(format_output(f_n, f_n_plus_1))
+    else:
+        print(0)
     # print(f'fib_n: {f_n} fib_n+1: {f_n_plus_1}')
     # print(f'mod_fib_n: {f_n%10} mod_fib_n+1: {f_n_plus_1%10}')
     # print(f'last digit: {((f_n%10) * (f_n_plus_1%10))%10}')

@@ -6,16 +6,19 @@ def get_fibonacci_modulo_rene(n, m):
     pisano_period = get_pisano_period(m)
     remainder_n = n % pisano_period
 
+    if remainder_n == 0:
+        return 0
+
     previous, current = 0, 1
     for _ in range(remainder_n - 1):
         previous, current = current, previous + current
-
+    print(current)
     return current % m
 
 
 def get_pisano_period(m):
     previous, current = 0, 1
-    for i in range(0, m ** 2):
+    for i in range(m ** 2):
         previous, current = current, (previous + current) % m
 
         # Pisano Period always starts with 01
