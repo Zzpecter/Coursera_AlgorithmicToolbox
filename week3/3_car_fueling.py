@@ -19,7 +19,7 @@ def compute_min_refills(total_distance, car_autonomy, gas_stations, stops):
             return compute_min_refills(total_distance - next_stop, car_autonomy, gas_stations, stops)
     else:
         return -1
-    return stops
+    return stops - 1
 
 if __name__ == '__main__':
     total_distance = int(input())
@@ -31,5 +31,6 @@ if __name__ == '__main__':
     for gs in line:
         gas_stations.append(int(gs))
 
+    gas_stations.append(total_distance)
     print(compute_min_refills(total_distance, car_autonomy, gas_stations, 0))
     # print(compute_min_refills(10, 3, [1, 2, 5, 9], 0))

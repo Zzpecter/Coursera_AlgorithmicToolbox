@@ -7,7 +7,7 @@ def get_optimal_value(capacity, weights, values):
     value_to_weight_ratios = [value/weight for weight, value in zip(weights, values)]
     total_value = 0
 
-    while capacity > 0:
+    while capacity > 0 and any(value_to_weight_ratios):
         max_index = value_to_weight_ratios.index(max(value_to_weight_ratios))
 
         if capacity >= weights[max_index]:
