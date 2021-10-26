@@ -13,6 +13,6 @@ def get_majority_element(a, n):
     return 0
 
 if __name__ == '__main__':
-    n = 4
-    a = [1, 2, 3, 1]
+    n = int(input())
+    a = list(map(int, input().split()))
     print(get_majority_element(a, n))

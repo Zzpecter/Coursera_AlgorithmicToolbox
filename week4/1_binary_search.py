@@ -1,26 +1,31 @@
 # Created by: René Vilar S.
 # Algorithmic Toolbox - Coursera 2021
 
+def binary_search(input_list, target_value):
+    min_index = 0
+    max_index = len(input_list) - 1
 
-def binary_search(keys, query, index_sum):
-    mid_index = int(len(keys) / 2 if len(keys) % 2 == 0 else (len(keys) - 1) / 2)
-    if keys[mid_index] != query:
-        higher = True if query > keys[mid_index] else False
+    try:
+        return input_list.index(target_value)
+    except ValueError:
+        return -1
 
-        if higher and mid_index != 0:
-            index_sum += mid_index
-            return binary_search(keys[mid_index:], query, index_sum)
-        elif higher and mid_index == 0:
-            return -1
-        elif not higher and mid_index == 0 and index_sum == 0:
-            return -1
-        else:
-            return binary_search(keys[:mid_index], query, index_sum)
-    return index_sum + mid_index
-
+    # while max_index >= min_index:
+    #     mid_index = (max_index+min_index) // 2
+    #     if input_list[mid_index] == target_value:
+    #         while mid_index > 0 and input_list[mid_index - 1] == input_list[mid_index]:
+    #             mid_index -= 1
+    #         return input_list.index(target_value)
+    #     elif input_list[mid_index] < target_value:
+    #         min_index = mid_index+1
+    #     else:
+    #         max_index = mid_index-1
+    # return -1
 
 if __name__ == '__main__':
-    input_keys = list(map(int, input().split()))[1:]
-    input_queries = list(map(int, input().split()))[1:]
+    _ = input()
+    input_keys = list(map(int, input().split()))
+    _ = input()
+    input_queries = list(map(int, input().split()))
     for q in input_queries:
-        print(binary_search(input_keys, q, 0), end=' ')
+        print(binary_search(input_keys, q), end=' ')

@@ -34,7 +34,8 @@ def quick_sort(a, l, r):
 
 
 if __name__ == '__main__':
-    n = input()
+    n = int(input())
+    input= input()
     numbers = map(int, input.split())
     # numbers = [4, 9, 4, 9, 1]
     # n = 5
